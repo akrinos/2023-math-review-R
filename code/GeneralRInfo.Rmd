@@ -1,0 +1,28 @@
+# General R information
+
+To save on time during this session, I've written the same notes that will be live-coded in class into this R Markdown file!
+
+## Loading packages in R
+
+Because `R` is an open community of data scientists, pretty much every interaction you have with `R` could involve loading some sort of package (though R's base functionality is uncommonly good).
+
+When we load a package for the first time, we need to use:
+
+```
+install.packages("package-name")
+```
+
+For example, if we wanted to use the `ggplot2` package for plotting (like we will later today), we would use:
+
+```{r}
+install.packages("ggplot2",repos = "http://cran.us.r-project.org")
+```
+If the package was not previously installed, we'll get some notes about where the packages were downloaded to and where they were downloaded from.
+
+In order to use a package, whether we downloaded it today or sometime in the past, we use
+
+```
+library(<package name>)
+```
+
+Notice that we don't use quotations.
