@@ -20,18 +20,20 @@ summary(lm(Abundance~Date,
 
 ## what could be wrong with our model?
 
-
+seasonal_data$DiffTime = difftime(as.Date(seasonal_data$Date,
+                                       format="%Y-%m-%d"),min(as.Date(seasonal_data$Date,
+                                                                      format="%Y-%m-%d")))
 
 seasonal_data$DateNormalized = as.Date(seasonal_data$Date,
-                                       format="%Y-%m-%d")
+                                                format="%Y-%m-%d")
 plot(x=seasonal_data[seasonal_data$Species=="SpeciesA",
                      "DateNormalized"],
      y=seasonal_data[seasonal_data$Species=="SpeciesA",
                      "Abundance"],
-     data=seasonal_data[seasonal_data$Species=="SpeciesA",],
      xlab="Date",ylab="Abundance")
 summary(lm(Abundance~DateNormalized,data=seasonal_data))
 summary(lm(Abundance~DateNormalized,data=seasonal_data[seasonal_data$Species=="SpeciesA",]))
+summary(lm(log(Abundance)~DateNormalized,data=seasonal_data[seasonal_data$Species=="SpeciesA",]))
 
 ## A really useful approach for making predictions
 ## from exponential time-series data.
