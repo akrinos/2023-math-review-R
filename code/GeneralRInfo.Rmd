@@ -26,3 +26,11 @@ library(<package name>)
 ```
 
 Notice that we don't use quotations.
+
+## Running R scripts from the command line
+
+Unlike in Python, you don't execute R scripts as a positional argument of `R`.
+Executing `R` will just get you to `R`'s command line interface. Instead, we
+use `Rscript <script_name>`. This can be useful in particular if you want to 
+incorporate `R` statistical code into larger workflows, for example coding
+exercises in `Python`.
